@@ -16,11 +16,30 @@
         android:id="@+id/text"
         android:text="Añade un alumno para mostrarlo en la lista"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nombre"
+        android:layout_below="@+id/text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/grupo"
+        android:layout_below="@id/nombre"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ok"
+        android:id="@+id/ok"
+        android:layout_below="@id/grupo"
+        />
+
    <ListView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/list"
-       android:layout_below="@+id/text">
+       android:layout_below="@+id/ok">
 
    </ListView>
 

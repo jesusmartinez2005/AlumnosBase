@@ -5,10 +5,12 @@ package com.example.jesusmartinez.alumnosbase;
  */
 public class Alumnos {
 
+  //  public int id;
     public String nombre;
     public String grupo;
 
     public Alumnos(String nombre, String grupo) {
+     //   this.id = id;
         this.nombre = nombre;
         this.grupo = grupo;
     }
@@ -28,4 +30,12 @@ public class Alumnos {
     public void setGrupo(String grupo) {
         this.grupo = grupo;
     }
+
+ /*   public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }*/
 }

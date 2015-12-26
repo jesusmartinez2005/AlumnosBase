@@ -41,6 +41,7 @@ public class AlumnosAdapter extends ArrayAdapter<Alumnos> {
             convertView = inflater.inflate(mResource, parent, false);
 
             holder=new ViewHolder();
+         //   holder.id=(TextView)convertView.findViewById(R.id.id);
             holder.nombre=(TextView)convertView.findViewById(R.id.nombre);
             holder.grupo=(TextView)convertView.findViewById(R.id.grupo);
 
@@ -54,8 +55,10 @@ public class AlumnosAdapter extends ArrayAdapter<Alumnos> {
         }
 
 
-        holder.nombre.setText(mData.get(0).getNombre());
-        holder.grupo.setText(mData.get(0).getGrupo());
+
+        holder.nombre.setText(mData.get(position).getNombre());
+        holder.grupo.setText(mData.get(position).getGrupo());
+    //    holder.id.setText(mData.get(position).getId());
 
 
         return convertView;
@@ -64,6 +67,7 @@ public class AlumnosAdapter extends ArrayAdapter<Alumnos> {
 
 
     static class ViewHolder {
+      //  TextView id;
         TextView nombre;
         TextView grupo;
     }

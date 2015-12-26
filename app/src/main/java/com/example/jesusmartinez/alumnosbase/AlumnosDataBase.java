@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class AlumnosDataBase extends SQLiteOpenHelper {
 
-    private static final String DATA_BASE_NAME = "base";
-    private static final int DATABASE_VERSION = 3;
+    private static final String DATA_BASE_NAME = "base2";
+    private static final int DATABASE_VERSION = 5;
     private static final String TABLE_NAME = "alumnos";
 
 
@@ -46,6 +46,7 @@ public class AlumnosDataBase extends SQLiteOpenHelper {
         contentValues.put("grupo",grupo);
         db.insert(TABLE_NAME,null,contentValues);
 
+
     }
 
 
@@ -54,10 +55,12 @@ public class AlumnosDataBase extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor= db.query(TABLE_NAME,null,null,null,null,null,null);
         if (cursor.moveToFirst()) {
+           // int idColumn=cursor.getColumnIndex("_ID");
             int nombreColumn =cursor.getColumnIndex("nombre");
             int grupoColumn=cursor.getColumnIndex("grupo");
 
             do {
+               // int id=cursor.getInt(idColumn);
                 String nombre=cursor.getString(nombreColumn);
                 String grupo=cursor.getString(grupoColumn);
                 Alumnos alumno=new Alumnos(nombre,grupo);
@@ -74,6 +77,17 @@ public class AlumnosDataBase extends SQLiteOpenHelper {
 
     private void initialData(SQLiteDatabase db){
         introAlumnos(db,"Juan","primero A");
+        introAlumnos(db,"Pedro","segundo b");
+
+    }
+
+    public void deleteAlumnos(String nombre) {
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "nombre" + " = ?";
+        String[] selectionArgs = { nombre };
+        db.delete(TABLE_NAME,selection,selectionArgs);
+        db.close();
+
 
     }
 
